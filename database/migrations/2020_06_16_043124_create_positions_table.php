@@ -18,6 +18,27 @@ class CreatePositionsTable extends Migration
             $table->string('name')->unique();
             $table->timestamps();
         });
+        
+        DB::table('positions')->insert(
+            array(
+                'name'=>'Training Manager'
+            )
+        );
+        DB::table('positions')->insert(
+            array(
+                'name'=>'SNA Trainer'
+            )
+        );
+        DB::table('positions')->insert(
+            array(
+                'name'=>'WEP Trainer'
+            )
+        );
+        DB::table('positions')->insert(
+            array(
+                'name'=>'Educator'
+            )
+        );
     }
 
     /**
