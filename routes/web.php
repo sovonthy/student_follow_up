@@ -24,4 +24,4 @@ Route::get('/', function (){
     return view('auth.login');
 });
 Route::resource('students', 'StudentController');
-
+Route::get('/returnOutFollow', 'StudentController@returnOutFollow')->name('returnOutFollow');
