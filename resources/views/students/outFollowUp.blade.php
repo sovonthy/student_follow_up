@@ -11,9 +11,8 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title text-center"> Student Follow Up</h4>
+                <h4 class="card-title text-center"> Student Out Of Follow Up</h4>
               </div>
-              <a href="{{route('students.create')}}" style="margin-top:-5px;"><i class="material-icons ml-5" style="margin-top:-5px; font-size:50px">add_circle</i>Add Student</a>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
@@ -44,8 +43,7 @@
                                 <td>{{$student->firstname}}.{{$student->lastname}}</td>
                                 <td>{{$student->class}}</td>
                                 <td >
-                                <a href="{{route('students.destroy', $student->id)}}"><span class="material-icons text-danger">person_add_disabled</span></a>&nbsp; | &nbsp;
-                                <a href="{{route('students.edit', $student->id)}}"><span  class="material-icons text-success">how_to_reg </span></a>
+                                <a href="{{route('students.edit', $student->id)}}"><span   class="material-icons text-success">how_to_reg </span></a>
                                 </td>
                                 @endif
 

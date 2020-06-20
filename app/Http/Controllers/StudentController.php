@@ -16,12 +16,12 @@ class StudentController extends Controller
     {
         // $users = User::all();
         // $students = Student::all();
-        // return view('student.viewStudent', compact('students', 'users'));
+        // return view('students.followUp', compact('students', 'users'));
     }
-    public function returnOutFollow(){
+    public function viewOutFollow(){
         $users = User::all();
         $students = Student::all();
-        return view('students.OutOfFollow', compact('students', 'users'));
+        return view('students.outFollowUp', compact('students', 'users'));
     }
 
     /**
@@ -31,7 +31,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('students.addStudent', compact('users'));
     }
 
     /**
@@ -53,9 +54,11 @@ class StudentController extends Controller
         $student -> lastname = $request -> get('lastname');
         $student -> class = $request -> get('class');
         $student -> description = $request -> get('description');
+        $student -> user_id = $request -> get('tutor');
+        $student->activeFollowup = 1;
         $student -> picture = $imageName;
         $student -> save();
-        return redirect('students.followUp');
+        return redirect('/home');
     }
 
     /**
@@ -77,9 +80,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $students = Student::find($id);
+        $student = Student::find($id);
         $users = User::all();
-        return view('students.followUp', compact('students', 'users'));
+        return view('students.editStudent', compact('student', 'users'));
     }
 
     /**
@@ -91,7 +94,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::find($id);
+        $imageName = time().'.'.request()->picture->getClientOriginalExtension();
+        request()->picture->move(public_path('/img/'), $imageName);
+
+        $student -> firstname = $request -> get('firstname');
+        $student -> lastname = $request -> get('lastname');
+        $student -> class = $request -> get('class');
+        $student -> description = $request -> get('description');
+        $student -> user_id = $request -> get('tutor');
+        $student -> picture = $imageName;
+        $student -> save();
+        return redirect('/home');
     }
 
     /**
@@ -102,7 +116,9 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student -> delete();
+        return redirect('/home');
     }
 }
 
