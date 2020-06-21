@@ -49,11 +49,10 @@
                                       @csrf
                                       @method('DELETE')
 
-                                     <button type="submit"><span  class="material-icons text-danger">person_add_disabled</span></button>
+                                     <button type="submit"  class="material-icons text-danger"><span >person_add_disabled</span></button>
+                                     &nbsp; | &nbsp;
+                                      <a href="{{route('students.edit', $student->id)}}"><span  class="material-icons text-success">how_to_reg </span></a>
                                     </form>
-
-                              &nbsp; | &nbsp;
-                                <a href="{{route('students.edit', $student->id)}}"><span  class="material-icons text-success">how_to_reg </span></a>
                                 </td>
                                 @endif
 
