@@ -44,8 +44,15 @@
                                 <td>{{$student->firstname}}.{{$student->lastname}}</td>
                                 <td>{{$student->class}}</td>
                                 <td >
-                                <a href="{{route('students.destroy', $student->id)}}"><span class="material-icons text-danger">person_add_disabled</span></a>&nbsp; | &nbsp;
-                                <a href="{{route('students.edit', $student->id)}}"><span  class="material-icons text-success">how_to_reg </span></a>
+
+                                <form method="POST" action="{{route('students.destroy', $student->id)}}">
+                                      @csrf
+                                      @method('DELETE')
+
+                                     <button type="submit"  class="material-icons text-danger"><span >person_add_disabled</span></button>
+                                     &nbsp; | &nbsp;
+                                      <a href="{{route('students.edit', $student->id)}}"><span  class="material-icons text-success">how_to_reg </span></a>
+                                    </form>
                                 </td>
                                 @endif
 
