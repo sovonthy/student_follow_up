@@ -119,6 +119,16 @@ class StudentController extends Controller
         $student -> delete();
         return redirect('/home');
     }
+
+    //Student out of follow up
+
+    public function outOfFollowStudent($id)
+    {
+        $student = Student::find($id);
+        $student->activeFollowup = 0;
+        $student->save();
+        return redirect('/home');
+    }
 }
 
 

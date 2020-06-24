@@ -1,8 +1,8 @@
 @extends('admin.dashboard')
 
 @section('content')
-<div class="col-md-4"></div>
-<div class="col-md-4">
+
+<div class="col-md-12">
             <div class="card card-user">
             <div class="card-header">
                     <h5>Edit Comment</h5>
@@ -21,7 +21,7 @@
               </div>
          </div>
 
-         <div class="col-md-4"></div>
+
   @endsection
 
 

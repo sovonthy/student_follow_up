@@ -35,16 +35,15 @@
                     </thead>
                     <tbody>
                     @foreach($students as $student)
-                          @if($student->activeFolloup == 0)
+                    @if($student->activeFollowup == 0)
 
                             <tr>
                                 <td>{{$student->id}}</td>
-                                <td><img src="{{asset('img/'.$student->picture)}}" width="40" style="border-radius: 25px;" height="40" alt="User" /></td>
+                                <td><img src="{{asset('img/'.$student->picture)}}" width="40" style="border-radius: 25px;" height="40" /></td>
                                 <td>{{$student->firstname}}.{{$student->lastname}}</td>
                                 <td>{{$student->class}}</td>
                                 <td >
-                                <a href="{{route('students.edit', $student->id)}}"><span   class="material-icons text-success">how_to_reg </span></a>
-                                </td>
+
                                 @endif
 
                         </tr>

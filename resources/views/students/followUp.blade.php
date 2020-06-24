@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
                     @foreach($students as $student)
-                          @if($student->activeFolloup == 0)
+                          @if($student->activeFolloup == 1)
 
                             <tr>
                                 <td>{{$student->id}}</td>
@@ -44,7 +44,7 @@
                                 <td>{{$student->firstname}}.{{$student->lastname}}</td>
                                 <td>{{$student->class}}</td>
                                 <td >
-                                     <a class="material-icons text-danger" >person_add_disabled</a>   |
+                                     <a href="{{route('outOfFollowStudent', $student->id)}}" class="material-icons text-danger" >person_add_disabled</a>   |
                                       <a href="{{route('addStudent', $student->id)}}"  class="material-icons text-success">how_to_reg</a> |
                                       <a href="{{route('students.show', $student->id)}}"class="material-icons text-info">visibility</a>
 
