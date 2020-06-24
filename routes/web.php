@@ -32,6 +32,7 @@ Route::get('/removeComment/{id}', 'CommentController@removeComment')->name('remo
 Route::get('/updateComment/{id}', 'CommentController@updateComment')->name('updateComment');
 //out of follow up route
 Route::get('/outOfFollowStudent/{id}', 'StudentController@outOfFollowStudent')->name('outOfFollowStudent');
+Route::get('/returnFollowUp/{id}', 'StudentController@returnFollowUp')->name('returnFollowUp');
 
 
 

@@ -16,6 +16,7 @@ class StudentController extends Controller
     {
 
     }
+    // view info student in out of follow up page
     public function viewOutFollow(){
         $users = User::all();
         $students = Student::all();
@@ -126,6 +127,16 @@ class StudentController extends Controller
     {
         $student = Student::find($id);
         $student->activeFollowup = 0;
+        $student->save();
+        return redirect('/home');
+    }
+
+    //return to followup
+
+    public function returnFollowUp($id)
+    {
+        $student = Student::find($id);
+        $student->activeFollowup = 1;
         $student->save();
         return redirect('/home');
     }

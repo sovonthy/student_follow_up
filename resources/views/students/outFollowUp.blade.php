@@ -43,7 +43,8 @@
                                 <td>{{$student->firstname}}.{{$student->lastname}}</td>
                                 <td>{{$student->class}}</td>
                                 <td >
-
+                                <a href="{{route('returnFollowUp', $student->id)}}"><i><span class="material-icons text-danger">backup</span></i></a>
+                                   </td>
                                 @endif
 
                         </tr>
