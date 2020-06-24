@@ -14,9 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        // $users = User::all();
-        // $students = Student::all();
-        // return view('students.followUp', compact('students', 'users'));
+
     }
     public function viewOutFollow(){
         $users = User::all();
@@ -69,7 +67,9 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = Student::find($id);
+        $comments = $student->comments;
+        return view('comments.viewComment', compact('student', 'comments'));
     }
 
     /**
@@ -78,13 +78,12 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function addStudent($id)
     {
         $student = Student::find($id);
         $users = User::all();
-        return view('students.editStudent', compact('student', 'users'));
+        return view('students.updateStudent', compact('student', 'users'));
     }
-
     /**
      * Update the specified resource in storage.
      *

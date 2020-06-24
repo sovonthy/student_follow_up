@@ -1,11 +1,6 @@
-
 @extends('admin.dashboard')
 
-@section('title')
-@endsection
-
 @section('content')
-
 <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
@@ -15,7 +10,7 @@
               <div class="card-header">
                 <h5 class="title">Edit Student</h5>
               </div>
-              <img class="mx-auto d-block" src="{{asset('img/'.$student->picture)}}"  width="40" style="border-radius: 25px;" height="40" alt="User" class="img-fluid rounded-circle">
+              <img class="mx-auto d-block" src="{{asset('img/'.$student->picture)}}"  width="80" style="border-radius: 25px;" height="80"  class="img-fluid rounded-circle">
               <div class="card-body">
               <form action="{{route('students.update',$student->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -38,7 +33,7 @@
                   <div class="row">
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
-                      <label for="description">{{ __('Tutor') }}</label>
+                      <label>Tutor</label>
                         <select class="form-control" name="tutor">
                             <option selected disabled>Tutor</option>
                             @foreach($users as $user)
@@ -72,12 +67,12 @@
                     <label>Profile</label>
                         <input type="file" class="form-control" name="picture" id="picture">
                       </div>
-                      </div>
+                    </div>
 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label>Description</label>
-                        <textarea rows="4" cols="80" class="form-control" value="{{$student->description}}" name="description" id="description"></textarea>
+                      <label>Description:</label>
+                                <textarea class="form-control" placeholder="Description" name="description">{{$student->description}}</textarea>
                       </div>
                     </div>
                   </div>
@@ -91,6 +86,27 @@
 
 @endsection
 
-@section('scripts')
-@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

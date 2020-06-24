@@ -13,7 +13,7 @@
               <div class="card-header">
                 <h4 class="card-title text-center"> Student Follow Up</h4>
               </div>
-              <a href="{{route('students.create')}}" style="margin-top:-5px;"><i class="material-icons ml-5" style="margin-top:-5px; font-size:50px">add_circle</i>Add Student</a>
+              <a class="btn btn-primary" href="{{route('students.create')}}" style="margin-left:10px;margin-top:-5px;">Add Student</a>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
@@ -44,15 +44,10 @@
                                 <td>{{$student->firstname}}.{{$student->lastname}}</td>
                                 <td>{{$student->class}}</td>
                                 <td >
+                                     <a class="material-icons text-danger" >person_add_disabled</a>   |
+                                      <a href="{{route('addStudent', $student->id)}}"  class="material-icons text-success">how_to_reg</a> |
+                                      <a href="{{route('students.show', $student->id)}}"class="material-icons text-info">visibility</a>
 
-                                <form method="POST" action="{{route('students.destroy', $student->id)}}">
-                                      @csrf
-                                      @method('DELETE')
-
-                                     <button type="submit"  class="material-icons text-danger"><span >person_add_disabled</span></button>
-                                     &nbsp; | &nbsp;
-                                      <a href="{{route('students.edit', $student->id)}}"><span  class="material-icons text-success">how_to_reg </span></a>
-                                    </form>
                                 </td>
                                 @endif
 
