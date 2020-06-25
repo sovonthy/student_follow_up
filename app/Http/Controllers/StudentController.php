@@ -43,6 +43,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $student = new Student;
+        if(auth::user()->role == 1){
         request()->validate([
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -58,6 +59,9 @@ class StudentController extends Controller
         $student -> picture = $imageName;
         $student -> save();
         return redirect('/home');
+
+        }
+
     }
 
     /**
@@ -95,6 +99,7 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $student = Student::find($id);
+        if(auth::user()->role == 1){
         $imageName = time().'.'.request()->picture->getClientOriginalExtension();
         request()->picture->move(public_path('/img/'), $imageName);
 
@@ -106,6 +111,7 @@ class StudentController extends Controller
         $student -> picture = $imageName;
         $student -> save();
         return redirect('/home');
+        }
     }
 
     /**
@@ -116,7 +122,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        
+
     }
 
     //Student out of follow up
