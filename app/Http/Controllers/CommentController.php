@@ -72,6 +72,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
+
          $comment = Comment::find($id);
         if(auth::id() == $comment->user_id){
          $comment->comment = $request->comment;
@@ -80,6 +81,7 @@ class CommentController extends Controller
         }else{
             return "No permission";
         }
+
     }
 
     /**
@@ -90,6 +92,7 @@ class CommentController extends Controller
      */
     public function removeComment(Request $request, $id)
     {
+
          $comment = Comment::find($id);
         if(auth::id() == $comment->user_id){
          $comment->delete();
@@ -98,6 +101,7 @@ class CommentController extends Controller
     }
 
 //   add comment to student
+
     public function addComment(Request $request, $id){
         $student = Student::find($id);
         $comment = new Comment();
