@@ -32,9 +32,13 @@
                         @foreach($comments as $comment)
                             <h5>{{$comment->user['firstname']}} {{($comment->created_at)}}</h5>
                             <p><b>Comment: </b>{{$comment->comment}}</p>
+
+                            @if(auth::id() == $comment->user_id)
                             <a href="{{route('updateComment', $comment->id)}}">Edit</a> |
                             <a href="{{route('removeComment', $comment->id)}}">Remove</a>
                             <hr>
+                            @endif
+
 
                             @endforeach
               </div>

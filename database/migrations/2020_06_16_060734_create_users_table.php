@@ -18,7 +18,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->integer('role')->default(0); //1 normal 0:admin
+
+            $table->integer('role')->default(0); //0 normal 1:admin
+
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -32,7 +34,7 @@ class CreateUsersTable extends Migration
             array(
                 'firstname'=>'admin',
                 'lastname'=>'user',
-                'role'=> 0,
+                'role'=> 1,
                 'email'=>'admin@example.com',
                 'position_id'=>1,
                 'password'=>bcrypt('password'),
@@ -43,7 +45,7 @@ class CreateUsersTable extends Migration
             array(
                 'firstname'=>'normal',
                 'lastname'=>'user',
-                'role'=> 1,
+                'role'=> 0,
                 'email'=>'normal@example.com',
                 'position_id'=> 4,
                 'password'=>bcrypt('password'),
