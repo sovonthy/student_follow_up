@@ -15,7 +15,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table text-center">
                     <thead class=" text-primary">
                       <th>
                         ID
@@ -35,16 +35,16 @@
                     </thead>
                     <tbody>
                     @foreach($students as $student)
-                          @if($student->activeFolloup == 0)
+                    @if($student->activeFollowup == 0)
 
                             <tr>
                                 <td>{{$student->id}}</td>
-                                <td><img src="{{asset('img/'.$student->picture)}}" width="40" style="border-radius: 25px;" height="40" alt="User" /></td>
+                                <td><img src="{{asset('img/'.$student->picture)}}" width="40" style="border-radius: 25px;" height="40" /></td>
                                 <td>{{$student->firstname}}.{{$student->lastname}}</td>
                                 <td>{{$student->class}}</td>
                                 <td >
-                                <a href="{{route('students.edit', $student->id)}}"><span   class="material-icons text-success">how_to_reg </span></a>
-                                </td>
+                                <a href="{{route('returnFollowUp', $student->id)}}"><i><span class="material-icons text-danger">backup</span></i></a>
+                                   </td>
                                 @endif
 
                         </tr>

@@ -14,10 +14,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        // $users = User::all();
-        // $students = Student::all();
-        // return view('students.followUp', compact('students', 'users'));
+
     }
+    // view info student in out of follow up page
     public function viewOutFollow(){
         $users = User::all();
         $students = Student::all();
@@ -69,7 +68,9 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = Student::find($id);
+        $comments = $student->comments;
+        return view('comments.viewComment', compact('student', 'comments'));
     }
 
     /**
@@ -78,13 +79,12 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function addStudent($id)
     {
         $student = Student::find($id);
         $users = User::all();
-        return view('students.editStudent', compact('student', 'users'));
+        return view('students.updateStudent', compact('student', 'users'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -116,8 +116,26 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
+        
+    }
+
+    //Student out of follow up
+
+    public function outOfFollowStudent($id)
+    {
         $student = Student::find($id);
-        $student -> delete();
+        $student->activeFollowup = 0;
+        $student->save();
+        return redirect('/home');
+    }
+
+    //return to followup
+
+    public function returnFollowUp($id)
+    {
+        $student = Student::find($id);
+        $student->activeFollowup = 1;
+        $student->save();
         return redirect('/home');
     }
 }

@@ -24,4 +24,15 @@ Route::get('/', function (){
     return view('auth.login');
 });
 Route::resource('students', 'StudentController');
+Route::resource('comments', 'CommentController');
 Route::get('/viewOutFollow', 'StudentController@viewOutFollow')->name('viewOutFollow');
+Route::get('/addStudent/{id}', 'StudentController@addStudent')->name('addStudent');
+Route::post('/addComment/{id}', 'CommentController@addComment')->name('addComment');
+Route::get('/removeComment/{id}', 'CommentController@removeComment')->name('removeComment');
+Route::get('/updateComment/{id}', 'CommentController@updateComment')->name('updateComment');
+//out of follow up route
+Route::get('/outOfFollowStudent/{id}', 'StudentController@outOfFollowStudent')->name('outOfFollowStudent');
+Route::get('/returnFollowUp/{id}', 'StudentController@returnFollowUp')->name('returnFollowUp');
+
+
+
