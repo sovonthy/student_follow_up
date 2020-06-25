@@ -16,7 +16,7 @@
               <a class="btn btn-primary" href="{{route('students.create')}}" style="margin-left:10px;margin-top:-5px;">Add Student</a>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table text-center">
                     <thead class=" text-primary">
                       <th>
                         ID
